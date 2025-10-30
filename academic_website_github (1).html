@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Godwin James | Plant Biologist</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="Academic website of Dr. Godwin James, Plant Biologist and Postdoctoral Researcher at the Donald Danforth Plant Science Center.">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <header class="bg-green-700 text-white py-6 shadow-md sticky top-0 z-10">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-3xl font-bold">Dr. Godwin James</h1>
+      <nav class="mt-4 md:mt-0">
+        <a href="#about" class="mx-3 hover:underline">About</a>
+        <a href="#research" class="mx-3 hover:underline">Research</a>
+        <a href="#publications" class="mx-3 hover:underline">Publications</a>
+        <a href="#contact" class="mx-3 hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container mx-auto px-6 py-12">
+      <h2 class="text-3xl font-semibold mb-4 border-b-2 border-green-700 inline-block pb-2">About Me</h2>
+      <p class="text-lg leading-relaxed mt-4">I am a postdoctoral researcher at the Donald Danforth Plant Science Center, USA. My research explores plant-pathogen interactions and antifungal mechanisms of plant peptides such as NCR13. Using biochemical, molecular, and structural biology approaches, I aim to uncover how plant-derived peptides modulate fungal physiology and activate immune signaling.</p>
+    </section>
+
+    <section id="research" class="bg-white border-t border-gray-200 py-12">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-semibold mb-4 border-b-2 border-green-700 inline-block pb-2">Research Interests</h2>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+          <li>Structure–activity relationship of antimicrobial peptides</li>
+          <li>Mechanisms of peptide-mediated fungal inhibition</li>
+          <li>Plant immunity and peptide–receptor signaling</li>
+          <li>Functional genomics and protein biochemistry</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="publications" class="container mx-auto px-6 py-12">
+      <h2 class="text-3xl font-semibold mb-4 border-b-2 border-green-700 inline-block pb-2">Publications</h2>
+      <p class="text-sm text-gray-600">This list loads automatically from <a href="https://orcid.org/0000-0001-6941-5309" target="_blank" class="text-green-700 underline">ORCID</a>. For citation metrics, visit <a href="https://scholar.google.co.in/citations?user=mEFPlQUAAAAJ&hl=en" target="_blank" class="text-green-700 underline">Google Scholar</a>.</p>
+      <div id="pub-loading" class="mt-6 text-gray-600">Loading publications…</div>
+      <ol id="pub-list" class="mt-6 space-y-4 list-decimal pl-6"></ol>
+      <div id="pub-error" class="hidden mt-6 text-red-700 bg-red-50 border border-red-200 rounded p-3"></div>
+    </section>
+
+    <section id="contact" class="bg-gray-100 py-12">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-semibold mb-4 border-b-2 border-green-700 inline-block pb-2">Contact</h2>
+        <p>Email: <a href="mailto:godwin.james@danforthcenter.org" class="text-green-700 hover:underline">godwin.james@danforthcenter.org</a></p>
+        <div class="flex justify-center space-x-6 mt-6">
+          <a href="https://scholar.google.co.in/citations?user=mEFPlQUAAAAJ&hl=en" target="_blank" class="text-green-700 hover:underline">Google Scholar</a>
+          <a href="https://linkedin.com/m/in/godwinj/" target="_blank" class="text-green-700 hover:underline">LinkedIn</a>
+          <a href="https://www.researchgate.net/profile/Godwin-James-2?ev=hdr_xprf&_sg=38jftq9_PHJZ4wy-rWc7vTPhNGBJ97NHVnnf8w_yBBLk5f8LSKllgXl_OGVgRYXf5x_SQNRaLU6pS-mbRUumWK5X&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoiZ2xvYmFsSGVhZGVyIn19" target="_blank" class="text-green-700 hover:underline">ResearchGate</a>
+          <a href="https://orcid.org/0000-0001-6941-5309" target="_blank" class="text-green-700 hover:underline">ORCID</a>
+        </div>
+        <p class="mt-6 text-sm text-gray-500">&copy; 2025 Godwin James. All rights reserved.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-green-700 text-white text-center py-4">
+    <p>Hosted on <a href="https://pages.github.com/" class="underline">GitHub Pages</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <script>
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // ==== Dynamic Publications from ORCID ====
+    (async function loadPublications() {
+      const ORCID_ID = '0000-0001-6941-5309';
+      const worksURL = `https://pub.orcid.org/v3.0/${ORCID_ID}/works`;
+      const headers = { 'Accept': 'application/vnd.orcid+json' };
+      const loadingEl = document.getElementById('pub-loading');
+      const listEl = document.getElementById('pub-list');
+      const errEl = document.getElementById('pub-error');
+
+      try {
+        const res = await fetch(worksURL, { headers });
+        if (!res.ok) throw new Error(`ORCID works fetch failed (${res.status})`);
+        const data = await res.json();
+
+        const groups = (data['group'] || []);
+        const summaries = groups.flatMap(g => g['work-summary'] || []);
+        const putCodes = [...new Set(summaries.map(s => s['put-code']))];
+
+        // Fetch each work detail
+        const detailPromises = putCodes.map(async (code) => {
+          const r = await fetch(`https://pub.orcid.org/v3.0/${ORCID_ID}/work/${code}`, { headers });
+          if (!r.ok) return null;
+          return r.json();
+        });
+
+        const details = (await Promise.all(detailPromises)).filter(Boolean);
+
+        // Map to simplified entries
+        const entries = details.map(w => {
+          // Title
+          const title = w?.title?.title?.value || 'Untitled';
+          // Journal/book title
+          const journal = w?.journalTitle?.value || w?.shortDescription || '';
+          // Year/Month/Day
+          const y = w?.publicationDate?.year?.value || '';
+          const m = w?.publicationDate?.month?.value || '';
+          const d = w?.publicationDate?.day?.value || '';
+          const dateStr = [y, m, d].filter(Boolean).join('-');
+          // Type
+          const type = w?.type || '';
+          // External IDs (prefer DOI)
+          let doi = '';
+          let url = w?.url?.value || '';
+          const ext = w?.externalIds?.externalId || [];
+          for (const e of ext) {
+            const typ = (e['external-id-type'] || '').toLowerCase();
+            if (typ === 'doi') {
+              const val = e['external-id-value'];
+              if (val) doi = val.startsWith('10.') ? `https://doi.org/${val}` : val;
+            }
+            if (!url && e['external-id-url'] && e['external-id-url'].value) {
+              url = e['external-id-url'].value;
+            }
+          }
+          return { title, journal, y: y ? parseInt(y,10) : 0, m: m ? parseInt(m,10) : 0, d: d ? parseInt(d,10) : 0, dateStr, type, doi, url };
+        });
+
+        // Sort by date desc
+        entries.sort((a,b)=> (b.y-a.y) || (b.m-a.m) || (b.d-a.d));
+
+        // Render
+        loadingEl?.remove();
+        if (!entries.length) {
+          listEl.innerHTML = '<li>No publications found in ORCID. See Google Scholar link above.</li>';
+          return;
+        }
+
+        const fmt = (e) => {
+          const parts = [];
+          parts.push(`<span class="font-medium">${e.title}</span>`);
+          const meta = [];
+          if (e.journal) meta.push(e.journal);
+          if (e.dateStr) meta.push(e.dateStr);
+          if (e.type) meta.push(e.type.replace(/_/g,' '));
+          const metaStr = meta.length ? ` <span class="text-gray-600">(${meta.join(' • ')})</span>` : '';
+          const linkStr = e.doi ? `<a href="${e.doi}" target="_blank" class="text-green-700 underline ml-2">DOI</a>` : (e.url ? `<a href="${e.url}" target="_blank" class="text-green-700 underline ml-2">Link</a>` : '');
+          return `<li>${parts.join('')}${metaStr}${linkStr}</li>`;
+        };
+
+        listEl.innerHTML = entries.map(fmt).join('
+');
+      } catch (err) {
+        loadingEl?.remove();
+        errEl.classList.remove('hidden');
+        errEl.textContent = 'Could not load publications from ORCID (browser blocked or ORCID unavailable). Your Google Scholar link above has the full list.';
+        console.error(err);
+      }
+    })();
+  </script>
+</body>
+</html>
